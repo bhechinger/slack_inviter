@@ -7,7 +7,7 @@ import evelink.char # Wrapped API access for the /char/ API path
 import evelink.eve  # Wrapped API access for the /eve/ API path
 #from flask_bootstrap import Bootstrap
 
-locale.setlocale(locale.LC_ALL, 'en_US')
+locale.setlocale(locale.LC_ALL, 'C.UTF-8')
 app = Flask(__name__)
 #Bootstrap(app)
 
@@ -19,15 +19,11 @@ def send_invite(email):
     return resp.status_code
 
 
-@app.route('/')
-def index():
-    return "Nothing to see here, move along!"
-
-@app.route('/slack')
+@app.route('/slack/invite')
 def slack():
-    return render_template('slack.html')
+    return render_template('invite.html')
 
-@app.route('/invite', methods=['POST'])
+@app.route('/slack/status', methods=['POST'])
 def invite():
     if request.method == 'POST':
         try:
@@ -36,11 +32,11 @@ def invite():
             for char in chars:
                 if char[1] == 99004295:
                     send_invite(request.form.get('email'))
-                    return render_template('invite.html', email=request.form.get('email'), error=None)
+                    return render_template('status.html', email=request.form.get('email'), error=None)
 
-            return render_template('invite.html', error="Not an alliance member!")
+            return render_template('status.html', error="Not an alliance member!")
         except Exception as e:
-            return render_template('invite.html', error=e)
+            return render_template('status.html', error=e)
 
 if __name__ == '__main__':
     app.run(debug=True)

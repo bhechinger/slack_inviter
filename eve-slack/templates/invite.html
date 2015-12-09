@@ -11,10 +11,10 @@
     <title>Signin Template for Bootstrap</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="/static/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/slack/static/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
-    <link href="/static/css/signin.css" rel="stylesheet">
+    <link href="/slack/static/css/invite.css" rel="stylesheet">
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -27,7 +27,7 @@
 
     <div class="container">
 
-      <form class="form-signin" method="post" action="{{ url_for('invite') }}">
+      <form class="form-signin" method="post" action="status">
         <h2 class="form-signin-heading">Please enter email and EVE API key information</h2>
 
         <label for="inputEmail" class="sr-only">Email address</label>
@@ -39,13 +39,26 @@
         <label for="inputVCode" class="sr-only">Verification Code</label>
         <input type="text" id="inputVCode" class="form-control" name="api_vcode" placeholder="Verification Code" required>
 
-        <button class="btn btn-lg btn-primary btn-block" type="submit">Go!</button>
+        <button class="submit btn btn-lg btn-primary btn-block" type="submit">Go!</button>
       </form>
 
     </div> <!-- /container -->
 
+    <div class="container form-signin">
+      <ul>
+        <li>Click <a href="https://support.eveonline.com/api/key/CreatePredefined/0">This Link</a> to create a predefined API key which has no options enabled.</li>
+        <li>On this page enter the email address you want invited to the ABA Slack Team.</li>
+        <li>On this page enter the API Key information from the key you just generated.</li>
+        <li>You will receive an email from Slack with an invitation to join.</li>
+        <li>Profit!</li>
+      </ul>
+    </div> <!-- /container /form-signin -->
+
+    <div class="container form-signin">
+      Many thanks to Draiv Solregard for page editing suggestions!
+    </div> <!-- /container /form-signin -->
 
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <script src="/static/js/ie10-viewport-bug-workaround.js"></script>
+    <script src="/slack/static/js/ie10-viewport-bug-workaround.js"></script>
   </body>
 </html>
