@@ -14,6 +14,7 @@ app = Flask(__name__)
 def send_invite(email):
     data = {"email": email}
     headers = {'content-type': 'application/json'}
+    # TODO: this needs to be moved to a config file
     resp = requests.post('https://aba-invite.herokuapp.com/invitations', auth=('lUz5eB2tyb7eyg3teiRj', 'rYot3ik0yIf6olk0eB1Zep2hoJ6ek6'), data=json.dumps(data), headers=headers)
     print("Status: {resp}".format(resp=resp.status_code))
     return resp.status_code
