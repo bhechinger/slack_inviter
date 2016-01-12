@@ -1,0 +1,3 @@
+build_docker:
+  script:
+    - docker build -t eve-slack .
