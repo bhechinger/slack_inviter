@@ -3,17 +3,24 @@ stages:
   - package
   - push
 
+artifacts:
+  paths:
+    - packages/
+
 setup_virtualenv:
   stage: build
   script:
-    - do stuff here
+    - virtualenv -p python2 slack_inviter/venv
+    - . slack_inviter/venv/bin/activate
+    - pip install -r requirements.txt
+    - deactivate
 
 make_rpm:
   stage: package
   script:
-    - do rpm stuff here
+    - fpm -s dir -t rpm -a noarch -n slack-inviter -v 1.0.0 -p packages slack_inviter=/home/app slack_inviter.conf=/etc/nginx/application.d/slack_inviter.conf
 
 make_dev:
   stage: package
   script:
-    - do deb stuff here
+    - fpm -s dir -t deb -a noarch -n slack-inviter -v 1.0.0 -p packages slack_inviter=/home/app slack_inviter.conf=/etc/nginx/application.d/slack_inviter.conf
