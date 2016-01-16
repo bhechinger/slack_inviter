@@ -1,0 +1,6 @@
+fpm -s dir -t rpm \
+  -a noarch \
+  -n slack-inviter \
+  -v 1.0.0 \
+  slack_inviter=/home/app \
+  slack_inviter.conf=/etc/nginx/application.d/slack_inviter.conf
