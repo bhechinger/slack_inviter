@@ -3,9 +3,10 @@ stages:
   - package
   - push
 
-artifacts:
-  paths:
-    - packages/
+# Docs mention this, but our version of CI doesn't seem to know what it is
+#artifacts:
+#  paths:
+#    - packages/
 
 setup_virtualenv:
   stage: build
