@@ -1,3 +1,19 @@
-#build_docker:
-#  script:
-#    - docker build -t eve-slack .
+stages:
+  - build
+  - package
+  - push
+
+setup_virtualenv:
+  stage: build
+  script:
+    - do stuff here
+
+make_rpm:
+  stage: package
+  script:
+    - do rpm stuff here
+
+make_dev:
+  stage: package
+  script:
+    - do deb stuff here
