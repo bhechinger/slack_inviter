@@ -1,27 +1,15 @@
-stages:
-  - build
-  - package
-  - push
-
-# Docs mention this, but our version of CI doesn't seem to know what it is
-#artifacts:
-#  paths:
-#    - packages/
-
-setup_virtualenv:
-  stage: build
+make_rpm:
   script:
     - virtualenv -p python2 slack_inviter/venv
     - . slack_inviter/venv/bin/activate
     - pip install -r requirements.txt
     - deactivate
-
-make_rpm:
-  stage: package
-  script:
     - fpm -f -s dir -t rpm -a noarch -n slack-inviter -v 1.0.0 -p /home/packages slack_inviter=/home/app slack_inviter.conf=/etc/nginx/application.d/slack_inviter.conf
 
 make_deb:
-  stage: package
   script:
+    - virtualenv -p python2 slack_inviter/venv
+    - . slack_inviter/venv/bin/activate
+    - pip install -r requirements.txt
+    - deactivate
     - fpm -f -s dir -t deb -a noarch -n slack-inviter -v 1.0.0 -p /home/packages slack_inviter=/home/app slack_inviter.conf=/etc/nginx/application.d/slack_inviter.conf
