@@ -3,6 +3,8 @@ stages:
 
 make_rpm:
   stage: package
+  only:
+    - /^\d+\.\d+\.\d+$/
   script:
     - echo "Tag ${CI_BUILD_TAG}"
     - echo "Ref ${CI_BUILD_REF}"
