@@ -4,8 +4,8 @@ stages:
 make_rpm:
   stage: package
   script:
-    - echo "Tag: ${CI_BUILD_TAG}"
-    - echo "Ref: ${CI_BUILD_REF}"
+    - echo "Tag ${CI_BUILD_TAG}"
+    - echo "Ref ${CI_BUILD_REF}"
     - virtualenv -p python2 slack_inviter/venv
     - . slack_inviter/venv/bin/activate
     - pip install -r requirements.txt
