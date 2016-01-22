@@ -1,5 +1,6 @@
 PKG_TYPE=${1}
 PKG_VERSION=${2}
+PKG_REPO_DIR=${3}
 
 virtualenv -p python2 slack_inviter/venv
 . slack_inviter/venv/bin/activate
@@ -8,7 +9,7 @@ deactivate
 fpm -f -s dir -t ${PKG_TYPE} \
     -a noarch -n slack-inviter \
     -v ${PKG_VERSION} \
-    -p /home/packages \
+    -p ${PKG_REPO_DIR} \
     --after-install post_install \
     slack_inviter=/home/app \
     slack_inviter.conf=/etc/nginx/application.d/slack_inviter.conf

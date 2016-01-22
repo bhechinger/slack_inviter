@@ -6,7 +6,8 @@ make_rpm:
   only:
     - /^\d+\.\d+\.\d+$/
   script:
-    - ./make_package rpm ${CI_BUILD_TAG}
+    - ./make_package rpm ${CI_BUILD_TAG} /repos/centos/internal/
+    - createrepo /repos/centos/internal/
 
 # No point doing this right now (if ever)
 #make_deb:
