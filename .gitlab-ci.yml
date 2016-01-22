@@ -8,9 +8,10 @@ make_rpm:
   script:
     - ./make_package rpm ${CI_BUILD_TAG}
 
-make_deb:
-  stage: package
-  only:
-    - /^\d+\.\d+\.\d+$/
-  script:
-    - ./make_package deb ${CI_BUILD_TAG}
+# No point doing this right now (if ever)
+#make_deb:
+#  stage: package
+#  only:
+#    - /^\d+\.\d+\.\d+$/
+#  script:
+#    - ./make_package deb ${CI_BUILD_TAG}
