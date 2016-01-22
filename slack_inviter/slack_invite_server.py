@@ -7,7 +7,7 @@ import evelink.char # Wrapped API access for the /char/ API path
 import evelink.eve  # Wrapped API access for the /eve/ API path
 #from flask_bootstrap import Bootstrap
 
-locale.setlocale(locale.LC_ALL, 'C.UTF-8')
+locale.setlocale(locale.LC_ALL, 'en_US.UTF-8')
 app = Flask(__name__)
 #Bootstrap(app)
 
