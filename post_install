@@ -1,5 +1,5 @@
 # restart nginx
-service restart nginx
+systemctl restart  nginx.service
 
 # restart Passenger
 passenger-config restart-app /home/app/slack_inviter
