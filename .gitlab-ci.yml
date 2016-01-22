@@ -6,11 +6,11 @@ make_rpm:
   only:
     - /^\d+\.\d+\.\d+$/
   script:
-    - make_package rpm ${CI_BUILD_TAG}
+    - ./make_package rpm ${CI_BUILD_TAG}
 
 make_deb:
   stage: package
   only:
     - /^\d+\.\d+\.\d+$/
   script:
-    - make_package deb ${CI_BUILD_TAG}
+    - ./make_package deb ${CI_BUILD_TAG}
