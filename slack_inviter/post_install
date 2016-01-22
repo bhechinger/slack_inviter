@@ -1,0 +1,2 @@
+# restart Passenger
+passenger-config restart-app /home/app/slack_inviter

@@ -9,5 +9,6 @@ fpm -f -s dir -t ${PKG_TYPE} \
     -a noarch -n slack-inviter \
     -v ${PKG_VERSION} \
     -p /home/packages \
+    --after-install post_install \
     slack_inviter=/home/app \
     slack_inviter.conf=/etc/nginx/application.d/slack_inviter.conf
