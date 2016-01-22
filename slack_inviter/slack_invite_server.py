@@ -20,11 +20,11 @@ def send_invite(email):
     return resp.status_code
 
 
-@app.route('/slack/invite')
+@app.route('/invite')
 def slack():
     return render_template('invite.html')
 
-@app.route('/slack/status', methods=['POST'])
+@app.route('/status', methods=['POST'])
 def invite():
     if request.method == 'POST':
         try:
