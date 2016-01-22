@@ -1,6 +1,13 @@
-fpm -s dir -t rpm \
-  -a noarch \
-  -n slack-inviter \
-  -v 1.0.0 \
-  slack_inviter=/home/app \
-  slack_inviter.conf=/etc/nginx/application.d/slack_inviter.conf
+PKG_TYPE=${1}
+PKG_VERSION=${2}
+
+virtualenv -p python2 slack_inviter/venv
+. slack_inviter/venv/bin/activate
+pip install -r requirements.txt
+deactivate
+fpm -f -s dir -t ${PKG_TYPE} \
+    -a noarch -n slack-inviter \
+    -v ${PKG_VERSION} \
+    -p /home/packages \
+    slack_inviter=/home/app \
+    slack_inviter.conf=/etc/nginx/application.d/slack_inviter.conf
