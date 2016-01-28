@@ -16,7 +16,7 @@ fpm -f -s dir -t ${PKG_TYPE} \
     slack_inviter=/home/app \
     slack_inviter.conf=/etc/nginx/application.d/slack_inviter.conf
 
-RPM_FILE=build/*.rpm
+RPM_FILE=$(ls build/*.rpm)
 
 mvn deploy:deploy-file \
     -DgroupId=ABA \
@@ -26,4 +26,4 @@ mvn deploy:deploy-file \
     -Dpackaging=rpm \
     -DrepositoryId=nexus \
     -Durl=http://repo1.4amlunch.net/nexus/content/repositories/rpm \
-    -Dfile=build/${RPM_FILE}
+    -Dfile=${RPM_FILE}
