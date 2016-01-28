@@ -16,6 +16,9 @@ fpm -f -s dir -t ${PKG_TYPE} \
     slack_inviter=/home/app \
     slack_inviter.conf=/etc/nginx/application.d/slack_inviter.conf
 
+ls
+ls build
+
 mvn deploy:deploy-file \
     -DgroupId=ABA \
     -DartifactId=slack-inviter \
