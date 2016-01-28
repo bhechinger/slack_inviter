@@ -9,6 +9,7 @@ deactivate
 fpm -f -s dir -t ${PKG_TYPE} \
     -a noarch -n slack-inviter \
     -v ${PKG_VERSION} \
+    -p build \
     --after-install post_install \
     -m "Brian Hechinger <wonko@4amlunch.net>" \
     --description "Web front end for alliance members to get auto-invited to Slack" \
@@ -23,4 +24,4 @@ mvn deploy:deploy-file \
     -Dpackaging=rpm \
     -DrepositoryId=nexus \
     -Durl=http://repo1.4amlunch.net/nexus/content/repositories/rpm \
-    -Dfile=slack-inviter-*.noarch.rpm
+    -Dfile=build/*.rpm
