@@ -1,6 +1,5 @@
 PKG_TYPE=${1}
 PKG_VERSION=${2}
-PKG_REPO_DIR=${3}
 
 virtualenv -p python2 slack_inviter/venv
 . slack_inviter/venv/bin/activate
